@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth')->only('store');
+        $this->middleware('admin')->only('create');
     }
 
-    public function index()
+    public function index(): View
     {
         return view('posts.index', [
             'posts' => Post::latest()->filter(
@@ -20,7 +23,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function show(Post $post)
+    public function show(Post $post): View
     {
         return view('posts.show', [
             'post' => $post,
@@ -29,5 +32,10 @@ class PostController extends Controller
                 ->latest()
                 ->paginate(10)
         ]);
+    }
+
+    public function create(): View
+    {        
+        return view('posts.create');
     }
 }
