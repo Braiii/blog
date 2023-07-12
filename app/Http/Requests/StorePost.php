@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class PostCommentsCreate extends FormRequest
+class StorePost extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +23,18 @@ class PostCommentsCreate extends FormRequest
     public function rules(): array
     {
         return [
-            'body' => ['required', 'string']
+            'title' => ['required'],
+            'slug' => ['required', Rule::unique('posts', 'slug')],
+            'excerpt' => ['required'],
+            'body' => ['required'],
+            'category_id' => ['required', 'numeric', Rule::exists('categories', 'id')]
         ];
+    }
+
+    public function attributes(): array
+    {
+       return [
+            'category_id' => 'category'
+       ];
     }
 }

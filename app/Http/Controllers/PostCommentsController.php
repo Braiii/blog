@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PostCommentsCreate;
+use App\Http\Requests\StorePostComments;
 use App\Models\Post;
 
 class PostCommentsController extends Controller
@@ -12,7 +12,7 @@ class PostCommentsController extends Controller
        $this->middleware('auth');
     }
 
-    public function store(Post $post, PostCommentsCreate $request)
+    public function store(Post $post, StorePostComments $request)
     {
         $post->comments()->create(
             $request

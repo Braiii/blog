@@ -22,3 +22,4 @@ Route::post('/sessions', [SessionsController::class, 'store']);
 Route::delete('/logout', [SessionsController::class, 'destroy']);
 
 Route::get('/admin/posts/create', [PostController::class, 'create']);
+Route::post('/admin/posts', [PostController::class, 'store']);
