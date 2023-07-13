@@ -3,9 +3,11 @@
         <h1 class="font-bold text-xl text-center">Login !</h1>
         <form action="/sessions" method="POST">
             @csrf
-            <x-form.inputs.text label="Email" type="email" name="email"/>
-            <x-form.inputs.text label="Password" type="password" name="password"/>
-            <x-form.button>Submit</x-form.button>
+            <x-form.input type="email" name="email"/>
+            <x-form.input type="password" name="password"/>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                Login
+            </button>
         </form>
     </main>
 </x-layout> 

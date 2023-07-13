@@ -16,12 +16,10 @@
             required
             placeholder="Quick, thnink of something to say!"></textarea>
 
-        @error('body')
-            <p class="text-red-500 text-xs mt-2">{{ $message }} </p>
-        @enderror
+        <x-form.error name="body" />
     </div>
 
     <footer class="flex justify-end border-t border-gray-200 mt-6 pt-6">
-        <x-form.submit-button>Post</x-form.submit-button>
+        <x-form.button>Post</x-form.button>
     </footer>
 </form>

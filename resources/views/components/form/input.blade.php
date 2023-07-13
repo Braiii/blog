@@ -1,16 +1,7 @@
-@props([
-    'type' => 'text',
-    'label', 
-    'name',
-    'value',
-])
+@props(['name', 'type' => 'text'])
 
-<div class="mb-6">
-    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-        for="{{ $name }}"
-    >
-        {{ $label }}
-    </label>
+<x-form.field>
+    <x-form.label name="{{ $name }}" />
 
     <input class="border p-2 w-full
         @error($name) 
@@ -26,4 +17,4 @@
     >
 
     <x-form.error name="{{ $name }}" />
-</div>
+</x-form.field>

@@ -47,7 +47,10 @@ class PostController extends Controller
         Post::create(
             $request
                 ->safe()
-                ->merge(['user_id' => auth()->id()])
+                ->merge([
+                    'user_id' => auth()->id(),
+                    'thumbnail' => $request->file('thumbnail')->store('thumbnails')
+                    ])
                 ->toArray()
         );
 

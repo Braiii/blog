@@ -3,12 +3,14 @@
         <h1 class="font-bold text-xl text-center">Register !</h1>
         <form action="/register" method="POST">
             @csrf
-            <x-form.inputs.text label="Username" name="username"/>
-            <x-form.inputs.text label="Name" name="name"/>
-            <x-form.inputs.text label="Email" type="email" name="email"/>
-            <x-form.inputs.text label="Password" type="password" name="password"/>
-            <x-form.inputs.text label="Confirm Password" type="password" name="password_confirmation"/>
-            <x-form.button>Submit</x-form.button>
+            <x-form.input name="username"/>
+            <x-form.input name="name"/>
+            <x-form.input type="email" name="email"/>
+            <x-form.input type="password" name="password"/>
+            <x-form.input type="password" name="password_confirmation"/>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                Login
+            </button>
         </form>
     </main>
 </x-layout> 
