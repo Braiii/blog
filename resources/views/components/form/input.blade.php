@@ -3,11 +3,11 @@
 <x-form.field>
     <x-form.label name="{{ $name }}" />
 
-    <input class="border p-2 w-full
+    <input class="border p-2 w-full rounded
         @error($name) 
             border-red-400 
         @else 
-            border-gray-400 
+            border-gray-200 
         @enderror"
         type="{{ $type }}"
         name="{{ $name }}"

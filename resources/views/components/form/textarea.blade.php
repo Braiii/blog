@@ -3,11 +3,11 @@
 <x-form.field>
     <x-form.label name="{{ $name }}" />
     
-    <textarea class="border p-2 w-full
+    <textarea class="border p-2 w-full rounderd
         @error($name) 
             border-red-500 
         @else
-            border-gray-400
+            border-gray-200
         @enderror"
         name="{{ $name }}"
         id="{{ $name }}"

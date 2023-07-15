@@ -22,15 +22,29 @@
                 </a>
             </div>
 
-            <div class="mt-8 md:mt-0 space-x-3 text-sm">
+            <div class="mt-8 flex items-center md:mt-0 space-x-5">
                 <a href="/" class="font-bold uppercase">Home Page</a>
                 @auth
-                    <span class="font-bold text-blue-600">Hi, {{ auth()->user()->username }}</span>
-                    <form action="/logout" method="POST" class="inline">
-                        @csrf
-                        @method('DELETE')
-                        <button class="text-red-400">Logout</button>
-                    </form>
+                    <x-dropdown>
+                        <x-slot name="trigger">
+                            <button class="text-md font-bold">Hi, {{ auth()->user()->name }}</button>
+                        </x-slot>
+
+                        <x-dropdown-item href="/admin/dashboard">Dashboard</x-dropdown-item>
+                        <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                        <x-dropdown-item 
+                            href="#" 
+                            x-data="{}" 
+                            @click.prevent="document.querySelector('#logout-form').submit()"
+                        >
+                            Logout
+                        </x-dropdown-item>
+
+                        <form id="logout-form" action="/logout" method="POST" style="display: none">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                    </x-dropdown>
                 @else
                     <a href="/login" class="font-bold text-blue-600">Login</a>
                     <a href="/register" class="font-bold text-blue-600">Register</a>
