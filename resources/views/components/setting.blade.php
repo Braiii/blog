@@ -11,12 +11,12 @@
                     <?xml version="1.0" ?>
                     <!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
                     <a 
-                        href="/admin/dashboard" 
+                        href="/admin/posts" 
                         class="transition-colors duration-200 block text-left hover:text-blue-500 border-r-4 hover:border-blue-500
-                            {{ request()->is('admin/dashboard') ? 'border-blue-500 text-blue-500' : 'border-white' }}"
+                            {{ request()->is('admin/posts') ? 'border-blue-500 text-blue-500' : 'border-white' }}"
                     >
                         <x-icon name="home"></x-icon>
-                        Dashboard
+                        All Posts
                     </a>
                 </li>
 

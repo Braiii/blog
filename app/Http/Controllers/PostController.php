@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePost;
-use App\Models\Category;
 use App\Models\Post;
 use Illuminate\View\View;
 
@@ -33,27 +31,5 @@ class PostController extends Controller
                 ->latest()
                 ->paginate(10)
         ]);
-    }
-
-    public function create(): View
-    {        
-        return view('posts.create', [
-            'categories' => Category::all()
-        ]);
-    }
-
-    public function store(StorePost $request): mixed
-    {
-        Post::create(
-            $request
-                ->safe()
-                ->merge([
-                    'user_id' => auth()->id(),
-                    'thumbnail' => $request->file('thumbnail')->store('thumbnails')
-                    ])
-                ->toArray()
-        );
-
-        return redirect('/')->with('success', 'Post successfully created.');
     }
 }

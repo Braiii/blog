@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
@@ -21,5 +22,5 @@ Route::get('/login', [SessionsController::class, 'create'])->name('login');
 Route::post('/sessions', [SessionsController::class, 'store']);
 Route::delete('/logout', [SessionsController::class, 'destroy']);
 
-Route::get('/admin/posts/create', [PostController::class, 'create']);
-Route::post('/admin/posts', [PostController::class, 'store']);
+Route::get('/admin/posts/create', [AdminPostController::class, 'create']);
+Route::post('/admin/posts', [AdminPostController::class, 'store']);
