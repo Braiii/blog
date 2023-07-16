@@ -12,7 +12,14 @@ class AdminPostController extends Controller
 {
     public function __construct()
     {
-       $this->middleware('admin');
+        $this->middleware('admin');
+    }
+
+    public function index(): View
+    {
+        return view('posts.admin.index', [
+            'posts' => Post::paginate(10)
+        ]);
     }
 
     public function create(): View
@@ -35,5 +42,13 @@ class AdminPostController extends Controller
         );
 
         return redirect('/')->with('success', 'Post successfully created.');
+    }
+
+    public function edit(Post $post): View
+    {
+        return view('posts.admin.edit', [
+            'post' => $post,
+            'categories' => Category::all()
+        ]);
     }
 }

@@ -22,5 +22,8 @@ Route::get('/login', [SessionsController::class, 'create'])->name('login');
 Route::post('/sessions', [SessionsController::class, 'store']);
 Route::delete('/logout', [SessionsController::class, 'destroy']);
 
+Route::get('/admin/posts', [AdminPostController::class, 'index']);
 Route::get('/admin/posts/create', [AdminPostController::class, 'create']);
 Route::post('/admin/posts', [AdminPostController::class, 'store']);
+Route::get('/admin/posts/{post}/edit', [AdminPostController::class, 'edit']);
+Route::patch('/admin/posts/{post}', [AdminPostController::class, 'update']);

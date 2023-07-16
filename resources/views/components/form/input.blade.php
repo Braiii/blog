@@ -1,4 +1,4 @@
-@props(['name'])
+@props(['name', 'required' => true])
 
 <x-form.field>
     <x-form.label name="{{ $name }}" />
@@ -11,7 +11,10 @@
         @enderror"
         name="{{ $name }}"
         id="{{ $name }}"
-        {{ $attributes(['required' => 'true', 'type' => 'text', 'value' => old($name)]) }}
+        @unless ($required == false)
+            required
+        @endunless
+        {{ $attributes(['type' => 'text', 'value' => old($name)]) }}
     >
 
     <x-form.error name="{{ $name }}" />
