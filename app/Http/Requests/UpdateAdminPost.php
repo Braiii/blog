@@ -24,7 +24,7 @@ class UpdateAdminPost extends FormRequest
     {
         return [
             'title' => ['required', 'max:60'],
-            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($this->post->id)],
+            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($this->post)],
             'thumbnail' => ['image'],
             'excerpt' => ['required'],
             'body' => ['required'],
