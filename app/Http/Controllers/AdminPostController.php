@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAdminPost;
+use App\Http\Requests\UpdateAdminPost;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use App\Models\Category;
@@ -18,7 +19,7 @@ class AdminPostController extends Controller
     public function index(): View
     {
         return view('posts.admin.index', [
-            'posts' => Post::paginate(10)
+            'posts' => Post::paginate(3)
         ]);
     }
 
@@ -32,16 +33,13 @@ class AdminPostController extends Controller
     public function store(StoreAdminPost $request): RedirectResponse
     {
         Post::create(
-            $request
-                ->safe()
-                ->merge([
+            $request->safe()->merge([
                     'user_id' => auth()->id(),
                     'thumbnail' => $request->file('thumbnail')->store('thumbnails')
-                    ])
-                ->toArray()
+                ])->toArray()
         );
 
-        return redirect('/')->with('success', 'Post successfully created.');
+        return redirect('/')->with('success', 'Post created!');
     }
 
     public function edit(Post $post): View
@@ -50,5 +48,25 @@ class AdminPostController extends Controller
             'post' => $post,
             'categories' => Category::all()
         ]);
+    }
+
+    public function update(Post $post, UpdateAdminPost $request): mixed
+    {
+        $post->update(
+            $request->safe()->merge([
+                    'user_id' => auth()->id(),
+                    'thumbnail' => $post->newThumbnail($request),
+                ])->toArray()
+        );
+
+        return back()->with('success', 'Post Updated!');
+    }
+    
+    public function destroy(Post $post): RedirectResponse
+    {
+        $post->deleteThumbnailFile();
+        $post->delete();
+
+        return redirect('/admin/posts')->with('success', 'Post Deleted!');
     }
 }

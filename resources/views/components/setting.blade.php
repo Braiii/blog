@@ -1,11 +1,12 @@
 @props(['heading'])
 
-<section class="px-6 py-8 max-w-4xl mx-auto">
+<section class="px-6 py-8 max-w-5xl mx-auto">
     <h1 class="text-xl font-bold mb-8 pb-4 border-b">
         {{ $heading }}
     </h1>
-    <div class="grid grid-cols-12 gap-4">
-        <aside class="col-span-3">
+
+    <div class="lg:flex gap-4">
+        <aside class="max-lg:mb-4 lg:w-48 lg:flex-shrink-0">
             <ul class="space-y-2">
                 <li>
                     <?xml version="1.0" ?>
@@ -15,7 +16,7 @@
                         class="transition-colors duration-200 block text-left hover:text-blue-500 border-r-4 hover:border-blue-500
                             {{ request()->is('admin/posts') ? 'border-blue-500 text-blue-500' : 'border-white' }}"
                     >
-                        <x-icon name="home"></x-icon>
+                        <x-icon name="posts"></x-icon>
                         All Posts
                     </a>
                 </li>
@@ -33,7 +34,7 @@
             </ul>
         </aside>
 
-        <main class="col-span-9">
+        <main class="lg:flex-1">
             <x-panel>
                 {{ $slot }}
              </x-panel>

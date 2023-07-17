@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
@@ -51,5 +52,24 @@ class Post extends Model
     public function comments(): HasMany
     {
        return $this->hasMany(Comment::class);
+    }
+
+    public function newThumbnail($request): string
+    {
+        $thumbnail = $this->thumbnail;
+        if (isset($request->safe()['thumbnail'])) {
+            $this->deleteThumbnailFile();
+
+            $thumbnail = $request->file('thumbnail')->store('thumbnails');
+        } 
+        
+        return $thumbnail;
+    }
+
+    public function deleteThumbnailFile(): void
+    {
+        if (isset($this->thumbnail)) {
+            Storage::delete($this->thumbnail);
+        }
     }
 }

@@ -3,7 +3,7 @@
          <form action="/admin/posts" method="POST" enctype="multipart/form-data">
             @csrf
             
-            <x-form.input name="title" />
+            <x-form.input name="title" maxlength="60" />
             <x-form.input name="slug" />
             <x-form.input type="file" name="thumbnail" />
             <x-form.textarea name="excerpt">{{ old('excerpt') }}</x-form.textarea>
