@@ -55,7 +55,7 @@ class AdminPostController extends Controller
         $post->update(
             $request->safe()->merge([
                     'user_id' => auth()->id(),
-                    'thumbnail' => $post->newThumbnail($request),
+                    'thumbnail' => $post->thumbnail($request),
                 ])->toArray()
         );
 

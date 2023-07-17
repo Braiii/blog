@@ -54,7 +54,7 @@ class Post extends Model
        return $this->hasMany(Comment::class);
     }
 
-    public function newThumbnail($request): string
+    public function thumbnail($request): string
     {
         $thumbnail = $this->thumbnail;
         if (isset($request->safe()['thumbnail'])) {
