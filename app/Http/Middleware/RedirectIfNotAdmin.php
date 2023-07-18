@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
 class RedirectIfNotAdmin
@@ -15,7 +16,7 @@ class RedirectIfNotAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()?->username !== 'Braiii')
+        if (Gate::denies('admin'))
         {
             abort(Response::HTTP_FORBIDDEN);
         }
