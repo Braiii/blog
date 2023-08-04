@@ -1,6 +1,6 @@
 <!doctype html>
 
-<title>Laravel From Scratch Blog</title>
+<title>Brai Blog</title>
 @vite('resources/css/app.css')
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,8 +17,25 @@
     <section class="px-6 py-8">
         <nav class="md:flex md:justify-between md:items-center">
             <div>
-                <a href="/">
-                    <img src="/images/logo.svg" alt="Laracasts Logo" width="165" height="16">
+                <a href="/portfolio">
+                    <svg class="inline -mt-5" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.9394 16.8531C16.33 17.2437 16.9631 17.2437 17.3538 16.8531L18.0606 
+                            16.1462C18.4513 15.7556 18.4513 15.1225 18.0606 14.7319L15.8281 12.5L18.06 
+                            10.2675C18.4506 9.87687 18.4506 9.24375 18.06 8.85312L17.3531 8.14625C16.9625 
+                            7.75562 16.3294 7.75562 15.9388 8.14625L12.2925 11.7925C11.9019 12.1831 11.9019 
+                            12.8163 12.2925 13.2069L15.9394 16.8531ZM21.94 16.1469L22.6469 16.8538C23.0375 
+                            17.2444 23.6706 17.2444 24.0613 16.8538L27.7075 13.2075C28.0981 12.8169 28.0981 
+                            12.1838 27.7075 11.7931L24.0613 8.14687C23.6706 7.75625 23.0375 7.75625 22.6469 
+                            8.14687L21.94 8.85375C21.5494 9.24438 21.5494 9.8775 21.94 10.2681L24.1719 12.5L21.94 
+                            14.7325C21.5494 15.1231 21.5494 15.7563 21.94 16.1469ZM39 26.5H23.8463C23.8 27.7381 22.9269 
+                            28.5 21.8 28.5H18C16.8319 28.5 15.9362 27.4081 15.9519 26.5H1C0.45 26.5 0 26.95 0 27.5V28.5C0 
+                            30.7 1.8 32.5 4 32.5H36C38.2 32.5 40 30.7 40 28.5V27.5C40 26.95 39.55 26.5 39 26.5ZM36 3.5C36 1.85 34.65 0.5 33 
+                            0.5H7C5.35 0.5 4 1.85 4 3.5V24.5H36V3.5ZM32 20.5H8V4.5H32V20.5Z" fill="#3b82f6"/>
+                    </svg>
+                        
+                    <span class="text-4xl">
+                        <span class="font-semibold">Brai</span>.blog
+                    </span>
                 </a>
             </div>
 
