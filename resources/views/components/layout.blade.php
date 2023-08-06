@@ -17,8 +17,8 @@
     <section class="px-6 py-8">
         <nav class="md:flex md:justify-between md:items-center">
             <div>
-                <a href="/portfolio">
-                    <svg class="inline -mt-5" width="40" height="33" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="/">
+                    <svg class="inline -mt-3.5" width="35" height="25" viewBox="0 0 40 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15.9394 16.8531C16.33 17.2437 16.9631 17.2437 17.3538 16.8531L18.0606 
                             16.1462C18.4513 15.7556 18.4513 15.1225 18.0606 14.7319L15.8281 12.5L18.06 
                             10.2675C18.4506 9.87687 18.4506 9.24375 18.06 8.85312L17.3531 8.14625C16.9625 
@@ -33,7 +33,7 @@
                             0.5H7C5.35 0.5 4 1.85 4 3.5V24.5H36V3.5ZM32 20.5H8V4.5H32V20.5Z" fill="#3b82f6"/>
                     </svg>
                         
-                    <span class="text-4xl">
+                    <span class="text-3xl">
                         <span class="font-semibold">Brai</span>.blog
                     </span>
                 </a>
